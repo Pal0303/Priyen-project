@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('{% static "Images/uncle.png" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 50px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar {
+            background-color: #17a2b8;
+            padding: 20px;
+            border-bottom: 2px solid #0b6e7e;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-size: 18px;
+            margin-right: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .logo {
+            color: #fff !important;
+            font-size: 32px;
+            margin-right: 30px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0b6e7e;
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light mb-4">
+    <div class="container">
+        <a class="logo" href="{% url 'index' %}">Smart Hire Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'jobsearch' %}">Job Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'company' %}">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'aboutus' %}">About Us</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="#">Chatbot</a>-->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1>INNOVATION</h1>
+<p>We Create The Opportunities</p>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

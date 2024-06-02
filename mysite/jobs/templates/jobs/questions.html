@@ -1,0 +1,187 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            color: #19b3e6;
+        }
+
+        textarea {
+            width: calc(100% - 22px); /* Adjusted for padding and border */
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333333;
+            resize: none;
+        }
+
+        button[type="submit"] {
+            background-color: #19b3e6;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #187a9b;
+        }
+
+        /* Timer CSS */
+        .timer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        /* Popup CSS */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Test Form</h2>
+    <form method="post" enctype="multipart/form-data" class="form-horizontal" id="myForm">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="question1">What are the main concepts of OOPs in Java?</label>
+            <textarea rows="4" id="question1" name="answer1" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="question2">Which are the different data types in C?</label>
+            <textarea rows="4" id="question2" name="answer2" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="question3">What are the benefits of using Python?</label>
+            <textarea rows="4" id="question3" name="answer3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="question4">Why isn't Java 100% Object oriented?</label>
+            <textarea rows="4" id="question4" name="answer4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="question5">Which are different SDLC models?</label>
+            <textarea rows="4" id="question5" name="answer5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <!-- Timer -->
+    <div class="timer" id="timer"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <p>Calculating score. Your test ends.</p>
+    </div>
+</div>
+
+<script>
+    // Set the time limit in seconds
+    var timeLimit = 300; // 5 minutes
+
+    // Convert time limit to milliseconds
+    var timeInMillis = timeLimit * 1000;
+
+    // Start the timer
+    var timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+        var minutes = Math.floor(timeLimit / 60);
+        var seconds = timeLimit % 60;
+
+        // Pad with zeros if less than 10
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        // Update timer text
+        timerElement.textContent = minutes + ':' + seconds;
+
+        // Decrease time
+        timeLimit--;
+
+        // Redirect to final.html when time ends
+        if (timeLimit < 0) {
+            document.getElementById('popup').style.display = 'block';
+        }
+    }
+
+    setInterval(updateTimer, 1000);
+
+    // Show popup after timer ends
+    setTimeout(function() {
+        document.getElementById('popup').style.display = 'block';
+    }, timeInMillis);
+</script>
+
+</body>
+</html>
+
+
+{% endblock %}

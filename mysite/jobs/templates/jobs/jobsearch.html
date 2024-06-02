@@ -1,0 +1,171 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .search-bar {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .featured-jobs {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .job {
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .job:last-child {
+            border-bottom: none;
+        }
+
+        .job:hover {
+            background-color: #f1f1f1;
+        }
+
+        .job-title {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .company {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            color: #888;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .description {
+            color: #666;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .fas {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <i class="fas fa-search"></i> Find Your Dream Jobs
+    </div>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for jobs">
+            <button><i class="fas fa-search"></i> Search</button>
+        </div>
+
+        <div class="featured-jobs">
+            <div class="job">
+                <div class="job-title"><i class="fas fa-briefcase "></i>Software Developer</div>
+                <div class="company"><i class="fas fa-building"></i> ABC Technologies</div>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> New York, NY</div>
+                <div class="description">We are seeking a talented Software Engineer to join our team...</div>
+            </div>
+            <div class="job">
+                <div class="job-title"><i class="fas fa-briefcase"></i> Data Scientist</div>
+                <div class="company"><i class="fas fa-building"></i> XYZ Corp</div>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</div>
+                <div class="description">Join our team as a Data Scientist and work on cutting-edge machine learning projects...</div>
+            </div>
+            <div class="job">
+                <div class="job-title"><i class="fas fa-briefcase"></i> Django Developer</div>
+                <div class="company"><i class="fas fa-building"></i> Google</div>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Ahmedabad,GJ</div>
+                <div class="description">We are looking for a creative Marketing Manager to lead our marketing initiatives...</div>
+            </div>
+            <div class="job">
+                <div class="job-title"><i class="fas fa-briefcase"></i> Senior SDE</div>
+                <div class="company"><i class="fas fa-building"></i> Novace</div>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Ahmedabad,GJ</div>
+                <div class="description">We are looking for a creative Marketing Manager to lead our marketing initiatives...</div>
+            </div>
+            <div class="job">
+                <div class="job-title"><i class="fas fa-briefcase"></i> Marketing Head</div>
+                <div class="company"><i class="fas fa-building"></i> Nave Marketing</div>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Texas</div>
+                <div class="description">We are looking for a creative Marketing Manager to lead our marketing initiatives...</div>
+            </div>
+            <!-- Add more job listings here -->
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

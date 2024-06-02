@@ -1,0 +1,78 @@
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-image: url('https://images.unsplash.com/photo-1557681204-63e3d21dee6b');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            font-size: 18px;
+            color: #dc3545;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Thank You for Applying!</h2>
+            <p>Your application has been received and processed.</p>
+            <h4>Your Score: 63</h4>
+            <h5>Your scores will be soon reported to recruiters.</h5>
+            <a href="{% url 'index' %}" class="back-link">Go back to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+{% endblock %}
+
+
+

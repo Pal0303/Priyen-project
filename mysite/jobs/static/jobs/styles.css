@@ -1,0 +1,8 @@
+/* styles.css */
+body {
+    /*background-image: url('../static/images/uncle.png');*/
+    background-size: cover; /* Cover the entire background */
+    background-position: center;
+
+    /* Additional CSS properties */
+}

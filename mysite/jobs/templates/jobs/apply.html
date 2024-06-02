@@ -1,0 +1,60 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1505238680356-667803448bb6');
+            background-size: cover;
+            background-position: center;
+            color: #efefef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-horizontal {
+            background-color: rgb(37, 35, 35);
+            padding: 65px;
+            border-radius: 10px;
+            max-width: 910px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        <p>The application process will take 15-20 minutes.</p>
+        <p>Upload your resume here to continue.</p>
+        <input type="file" name="resume">
+        <button type="submit">Upload</button>
+    </form>
+
+</body>
+</html>
+{% endblock %}

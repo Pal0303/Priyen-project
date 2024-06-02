@@ -1,0 +1,114 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            max-width: 500px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #87CEEB; /* Sky blue color */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 20px; /* Added margin to separate header from form */
+        }
+
+        .note {
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px; /* Added margin to separate note from form */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <h2>Applicant Details</h2>
+        </div>
+        <div class="note">
+            <p>This details are fetched from your Resume. If the candidate wants to change the details, they can.</p>
+        </div>
+
+            {% csrf_token %}
+            {% if object_list %}
+                {% with detail=object_list.0 %}
+                <div class="form-group">
+                    <label for="Name">Name:</label>
+                    <input type="text" class="form-control" id="name" value="{{detail.name}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <input type="email" class="form-control" id="email" value="{{detail.email}}">
+                </div>
+                <div class="form-group">
+                    <label for="Phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" value="{{detail.phone}}">
+                </div>
+                <div class="form-group">
+                    <label for="Skills">Matching Skills:</label>
+                    <input type="text" class="form-control" id="skills" value="Java,Python,C++">
+                </div>
+                {% endwith %}
+            {% endif %}
+            <button onclick="window.location.href = '{% url 'temp' %}'">Next</button>
+
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

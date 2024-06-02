@@ -1,0 +1,58 @@
+<!-- employer_login.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head content -->
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="{% url 'index' %}"><b>Job</b> Recruitment Portal</a>
+  </div>
+  <div class="login-box-body">
+    <p class="login-box-msg">Employer Login</p>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group has-feedback">
+        <input type="email" name="email" class="form-control" placeholder="Email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" name="password" class="form-control" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <a href="#">I forgot my password</a>
+        </div>
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <div class="col-xs-12">
+          {% if register_completed %}
+          <div>
+            <p class="text-center">You Have Registered Successfully! Your Account Approval Is Pending By Admin</p>
+          </div>
+          {% endif %}
+          {% if login_error %}
+          <div>
+            <p class="text-center">Invalid Email/Password! Try Again!</p>
+          </div>
+          {% endif %}
+          {% if company_login_error %}
+          <div>
+            <p class="text-center">{{ company_login_error }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+
+    <br>
+
+  </div>
+</div>
+</body>
+</html>

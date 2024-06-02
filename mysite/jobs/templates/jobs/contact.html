@@ -1,0 +1,36 @@
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+</head>
+<body style="background-color: #ffffff; color: #000000;">
+
+<div style="width: 80%; margin: 0 auto; padding-top: 50px;">
+  <form action="{% url 'contact_submit' %}" method="post">
+    {% csrf_token %}
+    <div style="margin-bottom: 20px;">
+      <label for="full_name" style="font-weight: bold;">Full Name:</label>
+      <input type="text" id="full_name" name="full_name" required style="width: 100%; padding: 10px; border: 1px solid #cccccc; border-radius: 5px; box-sizing: border-box;">
+    </div>
+    <div style="margin-bottom: 20px;">
+      <label for="email" style="font-weight: bold;">Email:</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #cccccc; border-radius: 5px; box-sizing: border-box;">
+    </div>
+    <div style="margin-bottom: 20px;">
+      <label for="message" style="font-weight: bold;">Message:</label>
+      <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 100px; border: 1px solid #cccccc; border-radius: 5px; box-sizing: border-box;"></textarea>
+    </div>
+    <button type="submit" style="background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; position: fixed;;">Send</button>
+  </form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

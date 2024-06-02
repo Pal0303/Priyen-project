@@ -1,0 +1,54 @@
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        h4 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Answer the questions on the next page to complete the application process.</h4>
+        <a class="btn" href="http://127.0.0.1:8000/jobs/jobs/apply/applicant_details/questions.html">Next</a>
+    </div>
+</body>
+</html>
+{% endblock %}

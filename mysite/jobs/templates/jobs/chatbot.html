@@ -1,0 +1,51 @@
+<!-- chatbot.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Job Portal Chatbot</h1>
+
+<div id="chat-container">
+    <div id="chat-messages"></div>
+    <input type="text" id="message-input" placeholder="Type your message...">
+    <button id="send-btn">Send</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#send-btn').click(function() {
+            sendMessage();
+        });
+
+        $('#message-input').keypress(function(e) {
+            if(e.which == 13) {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            var message = $('#message-input').val().trim();
+            if(message !== '') {
+                $('#chat-messages').append('<div class="message">You: ' + message + '</div>');
+                $('#message-input').val('');
+
+                $.ajax({
+                    url: '/chat/',
+                    method: 'POST',
+                    data: {
+                        'user_type': '{{ user_type }}',
+                        'message': message
+                    },
+                    success: function(data) {
+                        $('#chat-messages').append('<div class="message">Bot: ' + data.response + '</div>');
+                    },
+                    error: function(xhr, errmsg, err) {
+                        console.log(errmsg);
+                    }
+                });
+            }
+        }
+    });
+</script>
+{% endblock %}
